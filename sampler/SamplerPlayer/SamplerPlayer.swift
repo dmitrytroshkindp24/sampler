@@ -7,6 +7,8 @@ import AVFoundation
 
 class SamplerPlayer {
 
+    var latestPlayedNote: UInt8 = 0
+
     // MARK: - Private Properties
 
     private var engine: AVAudioEngine!
@@ -26,12 +28,15 @@ class SamplerPlayer {
 
     // MARK: - Public
 
-    public func play() {
-        sampler.startNote(60, withVelocity: 64, onChannel: 0)
+    public func play(note: UInt8) {
+        print("Sampler should play note: ", note)
+        latestPlayedNote = note
+        sampler.startNote(note, withVelocity: 64, onChannel: 0)
     }
 
-    public func stop() {
-        sampler.stopNote(60, onChannel: 0)
+    public func stop(note: UInt8) {
+        print("Sampler should stop note: ", note)
+        sampler.stopNote(note, onChannel: 0)
     }
 
     // MARK: - Private
@@ -46,20 +51,33 @@ class SamplerPlayer {
     }
 
     private func loadEXSFile() {
+
+        // FILE 1:
+        // File from irekid, from Logic
+        // Using audio files from AppBundle/EXS Factory Samples/...
+        let resourceName = "HangDrum01"
+
+        // FILE 2:
+        // File from /Library/Application Support/GarageBand/Instrument Library/Sampler/Sampler Instruments/
+        // Audio files are from /Library/Application Support/GarageBand/Instrument Library/Sampler/Sampler Files/Flute Solo
+        // Using audio files from AppBundle/Sampler Files/...
+        //let resourceName = "Flute iOS KB"
+
         guard
-            let url = Bundle.main.url(forResource: "HangDrum01", withExtension: "exs")
+            let instrumentBundleURL = Bundle.main.url(forResource: resourceName, withExtension: "exs")
         else {
-            print("could not load file")
+            print("could not load file instrumentBundleURL")
 
             return
         }
 
-        do {
-            try sampler.loadInstrument(at: url)
-        } catch {
-            print(error.localizedDescription)
-        }
+        print("URL of instrument = ", instrumentBundleURL.path)
 
+        do {
+            try sampler.loadInstrument(at: instrumentBundleURL)
+        } catch {
+            print("Failed to load instrument ", error.localizedDescription)
+        }
     }
 
     private func activateAudioSession() {
@@ -124,7 +142,7 @@ class SamplerPlayer {
     @objc private func handleInterruption(_ notification: Notification) {
         guard let type = notification.interruptionType else { return }
         if type == .began {
-            stop()
+            stop(note: latestPlayedNote)
         } else {
             activateAudioSession()
             makeAndStartEngine()

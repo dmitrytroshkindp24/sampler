@@ -3,7 +3,8 @@
 //  Copyright © Pavel Lipnyagov & Karina Lipnyagova. All rights reserved.
 
 import Foundation
-import DrumPads24AnalyticsTracker
+import UIKit
+//import DrumPads24AnalyticsTracker
 
 class AnayticsConfigurator {
     
@@ -23,7 +24,7 @@ class AnayticsConfigurator {
     // MARK: - Public
     
     public func configureAnalytics(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        AnalyticsTrackerConfig.sharedConfig.needsPrintLog = Constants.needsPrintLog
+//        AnalyticsTrackerConfig.sharedConfig.needsPrintLog = Constants.needsPrintLog
 
         configureAppsFlyer()
         configureAmplitude()
@@ -34,27 +35,27 @@ class AnayticsConfigurator {
     // MARK: - Private
     
     private func configureAppsFlyer() {
-        #if DEBUG
-        AnalyticsTrackerConfig.sharedConfig.isAppsFlyerInDebugMode = true
-        #endif
-        //AnalyticsTrackerConfig.sharedConfig.appsFlyerAppleAppId = App.appId
-        AnalyticsTrackerConfig.sharedConfig.appsFlyerApiKey = appsFlyerApiKey()
+//        #if DEBUG
+//        AnalyticsTrackerConfig.sharedConfig.isAppsFlyerInDebugMode = true
+//        #endif
+//        //AnalyticsTrackerConfig.sharedConfig.appsFlyerAppleAppId = App.appId
+//        AnalyticsTrackerConfig.sharedConfig.appsFlyerApiKey = appsFlyerApiKey()
         
     }
     
     private func configureAmplitude() {
-        AnalyticsTrackerConfig.sharedConfig.amplitudeApiKey = amplitudeApiKey()
+//        AnalyticsTrackerConfig.sharedConfig.amplitudeApiKey = amplitudeApiKey()
     }
     
     private func configureFirebase() {
-        AnalyticsTrackerConfig.sharedConfig.configureFirebase()
+//        AnalyticsTrackerConfig.sharedConfig.configureFirebase()
     }
     
     private func configureFacebook(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
-        AnalyticsTrackerConfig.sharedConfig.configureFacebook(application: application, launchOptions: launchOptions)
-        #if DEBUG
-        AnalyticsTrackerConfig.sharedConfig.isFacebookInDebugMode = true
-        #endif
+//        AnalyticsTrackerConfig.sharedConfig.configureFacebook(application: application, launchOptions: launchOptions)
+//        #if DEBUG
+//        AnalyticsTrackerConfig.sharedConfig.isFacebookInDebugMode = true
+//        #endif
     }
     
     private func appsFlyerApiKey() -> String {

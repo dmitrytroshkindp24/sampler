@@ -9,8 +9,6 @@
 /* Begin PBXBuildFile section */
 		53C6A69938EE4464791441AE /* libPods-samplerUI.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C6E8FA8C71BD6282EA2A3DE6 /* libPods-samplerUI.a */; };
 		892CB6022912873900502449 /* SamplerPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 892CB6012912873900502449 /* SamplerPlayer.swift */; };
-		892CB6082912882100502449 /* HangDrum01.exs in Resources */ = {isa = PBXBuildFile; fileRef = 892CB6072912880C00502449 /* HangDrum01.exs */; };
-		892CB6092912882700502449 /* HangDrum.wav in Resources */ = {isa = PBXBuildFile; fileRef = 892CB6052912880400502449 /* HangDrum.wav */; };
 		CFFE49D9DBB4710756149C94 /* libPods-sampler.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 57637B5193145FA28D2894CF /* libPods-sampler.a */; };
 		EF50477A26282BA300E80E02 /* Coordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF50477926282BA300E80E02 /* Coordinator.swift */; };
 		EF69CB5A2630AE0000AD5B1C /* TabBarControllerAnimator.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF69CB592630AE0000AD5B1C /* TabBarControllerAnimator.swift */; };
@@ -45,6 +43,10 @@
 		EF89D0132631F737005CAD72 /* AppAnalyticsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF89D0122631F737005CAD72 /* AppAnalyticsConstants.swift */; };
 		EF89D01A2631F7AF005CAD72 /* StoreAnalyticsConstants.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF89D0192631F7AF005CAD72 /* StoreAnalyticsConstants.swift */; };
 		EF89D0272631F85E005CAD72 /* StorePresenter.swift in Sources */ = {isa = PBXBuildFile; fileRef = EF89D0262631F85E005CAD72 /* StorePresenter.swift */; };
+		EFC203E629141A2F003DF4AE /* Flute iOS KB.exs in Resources */ = {isa = PBXBuildFile; fileRef = EFC203E529141A2F003DF4AE /* Flute iOS KB.exs */; };
+		EFC2047A29141AF7003DF4AE /* Sampler Files in Resources */ = {isa = PBXBuildFile; fileRef = EFC2047929141AF7003DF4AE /* Sampler Files */; };
+		EFC20482291421A5003DF4AE /* EXS Factory Samples in Resources */ = {isa = PBXBuildFile; fileRef = EFC20481291421A5003DF4AE /* EXS Factory Samples */; };
+		EFC2048429142268003DF4AE /* HangDrum01.exs in Resources */ = {isa = PBXBuildFile; fileRef = EFC204832914222B003DF4AE /* HangDrum01.exs */; };
 		EFDD0E49262765B5003E598B /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD0E48262765B5003E598B /* AppDelegate.swift */; };
 		EFDD0E4B262765B5003E598B /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EFDD0E4A262765B5003E598B /* SceneDelegate.swift */; };
 		EFDD0E55262765B7003E598B /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EFDD0E53262765B7003E598B /* LaunchScreen.storyboard */; };
@@ -68,8 +70,6 @@
 		6C55AFFC1D6B13FEC6FC87D1 /* Pods-projectTemplateUI.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectTemplateUI.release.xcconfig"; path = "Target Support Files/Pods-projectTemplateUI/Pods-projectTemplateUI.release.xcconfig"; sourceTree = "<group>"; };
 		773852427CA13ECE585997EB /* Pods-projectTemplateUI.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectTemplateUI.debug.xcconfig"; path = "Target Support Files/Pods-projectTemplateUI/Pods-projectTemplateUI.debug.xcconfig"; sourceTree = "<group>"; };
 		892CB6012912873900502449 /* SamplerPlayer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SamplerPlayer.swift; sourceTree = "<group>"; };
-		892CB6052912880400502449 /* HangDrum.wav */ = {isa = PBXFileReference; lastKnownFileType = audio.wav; path = HangDrum.wav; sourceTree = "<group>"; };
-		892CB6072912880C00502449 /* HangDrum01.exs */ = {isa = PBXFileReference; lastKnownFileType = file; path = HangDrum01.exs; sourceTree = "<group>"; };
 		A1CD7D08A4FBD01EDBC3BC03 /* Pods-sampler.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-sampler.debug.xcconfig"; path = "Target Support Files/Pods-sampler/Pods-sampler.debug.xcconfig"; sourceTree = "<group>"; };
 		A2C96F0636221B1F5B425A45 /* Pods-projectTemplate.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectTemplate.release.xcconfig"; path = "Target Support Files/Pods-projectTemplate/Pods-projectTemplate.release.xcconfig"; sourceTree = "<group>"; };
 		C6E8FA8C71BD6282EA2A3DE6 /* libPods-samplerUI.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = "libPods-samplerUI.a"; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -101,6 +101,10 @@
 		EF89D0192631F7AF005CAD72 /* StoreAnalyticsConstants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StoreAnalyticsConstants.swift; sourceTree = "<group>"; };
 		EF89D0262631F85E005CAD72 /* StorePresenter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StorePresenter.swift; sourceTree = "<group>"; };
 		EFBA4C9857D13ACE193F960D /* Pods-projectTemplate.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-projectTemplate.debug.xcconfig"; path = "Target Support Files/Pods-projectTemplate/Pods-projectTemplate.debug.xcconfig"; sourceTree = "<group>"; };
+		EFC203E529141A2F003DF4AE /* Flute iOS KB.exs */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Flute iOS KB.exs"; sourceTree = "<group>"; };
+		EFC2047929141AF7003DF4AE /* Sampler Files */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "Sampler Files"; sourceTree = "<group>"; };
+		EFC20481291421A5003DF4AE /* EXS Factory Samples */ = {isa = PBXFileReference; lastKnownFileType = folder; path = "EXS Factory Samples"; sourceTree = "<group>"; };
+		EFC204832914222B003DF4AE /* HangDrum01.exs */ = {isa = PBXFileReference; lastKnownFileType = file; path = HangDrum01.exs; sourceTree = "<group>"; };
 		EFDD0E45262765B5003E598B /* sampler.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = sampler.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		EFDD0E48262765B5003E598B /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EFDD0E4A262765B5003E598B /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -147,23 +151,6 @@
 				892CB6012912873900502449 /* SamplerPlayer.swift */,
 			);
 			path = SamplerPlayer;
-			sourceTree = "<group>";
-		};
-		892CB603291287ED00502449 /* EXS Factory Samples */ = {
-			isa = PBXGroup;
-			children = (
-				892CB6072912880C00502449 /* HangDrum01.exs */,
-				892CB604291287F700502449 /* HangDrum01 */,
-			);
-			path = "EXS Factory Samples";
-			sourceTree = "<group>";
-		};
-		892CB604291287F700502449 /* HangDrum01 */ = {
-			isa = PBXGroup;
-			children = (
-				892CB6052912880400502449 /* HangDrum.wav */,
-			);
-			path = HangDrum01;
 			sourceTree = "<group>";
 		};
 		C571DD0DF832CCA94955401B /* Frameworks */ = {
@@ -458,7 +445,10 @@
 		EFDD0E3C262765B5003E598B = {
 			isa = PBXGroup;
 			children = (
-				892CB603291287ED00502449 /* EXS Factory Samples */,
+				EFC203E529141A2F003DF4AE /* Flute iOS KB.exs */,
+				EFC204832914222B003DF4AE /* HangDrum01.exs */,
+				EFC20481291421A5003DF4AE /* EXS Factory Samples */,
+				EFC2047929141AF7003DF4AE /* Sampler Files */,
 				EF89CE522631474A005CAD72 /* Core */,
 				C571DD0DF832CCA94955401B /* Frameworks */,
 				F20E2E3000BE3BE1409FA938 /* Pods */,
@@ -601,7 +591,6 @@
 				EFDD0E42262765B5003E598B /* Frameworks */,
 				EFDD0E43262765B5003E598B /* Resources */,
 				949F2EF77D0764B74C7DC9CD /* [CP] Copy Pods Resources */,
-				B03F9A502D9FB01806F0F556 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -673,11 +662,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				892CB6092912882700502449 /* HangDrum.wav in Resources */,
-				892CB6082912882100502449 /* HangDrum01.exs in Resources */,
+				EFC2047A29141AF7003DF4AE /* Sampler Files in Resources */,
 				EF89CFAB26319AC5005CAD72 /* SF-Pro-Display-Medium.otf in Resources */,
 				EFDD0E55262765B7003E598B /* LaunchScreen.storyboard in Resources */,
+				EFC2048429142268003DF4AE /* HangDrum01.exs in Resources */,
 				EFFB150B264146D000720312 /* StoreLocalizable.strings in Resources */,
+				EFC20482291421A5003DF4AE /* EXS Factory Samples in Resources */,
+				EFC203E629141A2F003DF4AE /* Flute iOS KB.exs in Resources */,
 				EF89CFB126319AC5005CAD72 /* SF-Pro-Display-Heavy.otf in Resources */,
 				EF89CFAF26319AC5005CAD72 /* SF-Pro-Display-Bold.otf in Resources */,
 				EFDD0EB826276E46003E598B /* AppIcon.xcassets in Resources */,
@@ -757,23 +748,6 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sampler/Pods-sampler-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		B03F9A502D9FB01806F0F556 /* [CP] Embed Pods Frameworks */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sampler/Pods-sampler-frameworks-${CONFIGURATION}-input-files.xcfilelist",
-			);
-			name = "[CP] Embed Pods Frameworks";
-			outputFileListPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-sampler/Pods-sampler-frameworks-${CONFIGURATION}-output-files.xcfilelist",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-sampler/Pods-sampler-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		B629CF3AE048FB5E391FCE2B /* [CP] Check Pods Manifest.lock */ = {

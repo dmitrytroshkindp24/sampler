@@ -142,7 +142,7 @@ class AppCoordinator: Coordinator {
     private func needsDisplayStore() -> Bool {
         
         // just for testing purposes
-        return true
+        return false
     }
 }
 

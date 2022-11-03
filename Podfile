@@ -15,9 +15,9 @@ target "sampler" do
   uiPods
  
   pod 'DrumPads24Core'
-  pod 'DrumPads24AnalyticsTracker'
+#  pod 'DrumPads24AnalyticsTracker'
   pod 'DrumPads24UICore'
-  pod 'DrumPads24LocalizationCore'
+#  pod 'DrumPads24LocalizationCore'
 end
 
 target "samplerUI" do

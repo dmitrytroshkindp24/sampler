@@ -6,6 +6,7 @@ import UIKit
 import DrumPads24UICore
 
 protocol Feature1ViewActionsDelegate: AnyObject {
+    func feature1View(_ feature1View: Feature1View, didTouchDownButton button: UIButton)
     func feature1View(_ feature1View: Feature1View, didTouchUpInsideButton button: UIButton)
 }
 
@@ -67,6 +68,10 @@ class Feature1View: UIView {
 
     // MARK: - Actions
 
+    @objc private func didTouchDownButton(_ button: UIButton) {
+        actionsDelegate?.feature1View(self, didTouchDownButton: button)
+    }
+
     @objc private func didTouchUpInsideButton(_ button: UIButton) {
         actionsDelegate?.feature1View(self, didTouchUpInsideButton: button)
     }
@@ -90,8 +95,11 @@ class Feature1View: UIView {
 
     private func makeSamplerButton() -> UIButton {
         let button = UIButton()
-        button.setTitleColor(.black, for: .normal)
+        button.backgroundColor = .black
+        button.setTitleColor(.white, for: .normal)
+        button.setTitle("Play sampler note", for: .normal)
         button.layer.borderWidth = 1
+        button.addTarget(self, action: #selector(didTouchDownButton(_:)), for: .touchDown)
         button.addTarget(self, action: #selector(didTouchUpInsideButton(_:)), for: .touchUpInside)
 
         return button
