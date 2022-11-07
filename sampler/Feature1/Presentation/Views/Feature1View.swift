@@ -6,20 +6,20 @@ import UIKit
 import DrumPads24UICore
 
 protocol Feature1ViewActionsDelegate: AnyObject {
-    func feature1View(_ feature1View: Feature1View, didTouchDownButton button: UIButton)
-    func feature1View(_ feature1View: Feature1View, didTouchUpInsideButton button: UIButton)
+    func feature1View(_ feature1View: Feature1View, willPlayNoteAt index: Int)
+    func feature1View(_ feature1View: Feature1View, willStopNoteAt index: Int)
 }
 
 class Feature1View: UIView {
 
+    // MARK: - Public Properties
+
     weak var actionsDelegate: Feature1ViewActionsDelegate?
 
-    private enum Constants {
-        static let buttonCount: Int = 12
-    }
+    // MARK: - Private Properties
 
     private var contentView: UIView!
-    private var samplerButton: UIButton!
+    private var samplerButtons = [UIButton]()
 
     private var spacing: CGFloat {
         get {
@@ -57,7 +57,20 @@ class Feature1View: UIView {
         super.layoutSubviews()
 
         contentView.frame = calcContentViewFrame(inside: self.bounds)
-        samplerButton.frame = calcSamplerButtonFrame(samplerButton, inside: contentView.frame)
+        guard samplerButtons.count != 0 else { return }
+        calcSamplerButtonsFrames(samplerButtons, inside: contentView.frame)
+
+    }
+
+    // MARK: - Public
+
+    public func updateUI(with notes: [UInt8]) {
+        notes.forEach { note in
+            let button = makeSamplerButton(with: String(note))
+            samplerButtons.append(button)
+            contentView.addSubview(button)
+        }
+        setNeedsLayout()
     }
 
     // MARK: - Private
@@ -69,11 +82,13 @@ class Feature1View: UIView {
     // MARK: - Actions
 
     @objc private func didTouchDownButton(_ button: UIButton) {
-        actionsDelegate?.feature1View(self, didTouchDownButton: button)
+        guard let index = samplerButtons.firstIndex(of: button) else { return }
+        actionsDelegate?.feature1View(self, willStopNoteAt: index)
     }
 
     @objc private func didTouchUpInsideButton(_ button: UIButton) {
-        actionsDelegate?.feature1View(self, didTouchUpInsideButton: button)
+        guard let index = samplerButtons.firstIndex(of: button) else { return }
+        actionsDelegate?.feature1View(self, willPlayNoteAt: index)
     }
 
     // MARK: - Add Subviews
@@ -81,9 +96,6 @@ class Feature1View: UIView {
     private func addSubviews() {
         contentView = makeContentView()
         addSubview(contentView)
-
-        samplerButton = makeSamplerButton()
-        contentView.addSubview(samplerButton)
     }
 
     private func makeContentView() -> UIView {
@@ -93,11 +105,11 @@ class Feature1View: UIView {
         return view
     }
 
-    private func makeSamplerButton() -> UIButton {
+    private func makeSamplerButton(with name: String) -> UIButton {
         let button = UIButton()
         button.backgroundColor = .black
         button.setTitleColor(.white, for: .normal)
-        button.setTitle("Play sampler note", for: .normal)
+        button.setTitle("Play sampler note #\(name)", for: .normal)
         button.layer.borderWidth = 1
         button.addTarget(self, action: #selector(didTouchDownButton(_:)), for: .touchDown)
         button.addTarget(self, action: #selector(didTouchUpInsideButton(_:)), for: .touchUpInside)
@@ -118,15 +130,16 @@ class Feature1View: UIView {
         return frame
     }
 
-    private func calcSamplerButtonFrame(
-        _ button: UIButton,
-        inside rootFrame: CGRect
-    ) -> CGRect {
-        var frame = CGRect.zero
-        frame.size.width = rootFrame.width
-        frame.size.height = 56
-        frame.origin.y = (rootFrame.height - frame.height) / 2
-
-        return frame
+    private func calcSamplerButtonsFrames(_ buttons: [UIButton], inside rootFrame: CGRect) {
+        var y: CGFloat = 0
+        let height = rootFrame.height / CGFloat(buttons.count) - spacing
+        buttons.forEach { button in
+            var frame = CGRect.zero
+            frame.size.width = rootFrame.width
+            frame.size.height = height
+            frame.origin.y = y
+            y = frame.maxY + spacing
+            button.frame = frame
+        }
     }
 }

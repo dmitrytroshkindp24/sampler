@@ -6,10 +6,16 @@ import UIKit
 
 class Feature1ViewController: UIViewController {
 
-    var samplerPlayer: SamplerPlayer = SamplerPlayer()
+    // MARK: - Private Properties
+
+    private var samplerPlayer: SamplerPlayer = SamplerPlayer()
 
     // 48 is just for testing purposes
-    var latestPlayedNote: UInt8 = 48
+    private var latestPlayedNote: UInt8 = 48
+
+    private var notes: [UInt8] = [48, 56, 62, 70, 78];
+
+    // MARK: - Lifecycle
 
     init() {
         super.init(nibName: nil, bundle: Bundle.main)
@@ -24,6 +30,7 @@ class Feature1ViewController: UIViewController {
     override func loadView() {
         let view = Feature1View()
         view.actionsDelegate = self
+        view.updateUI(with: notes)
         self.view = view
     }
 
@@ -38,15 +45,11 @@ class Feature1ViewController: UIViewController {
 }
 
 extension Feature1ViewController: Feature1ViewActionsDelegate {
-    func feature1View(_ feature1View: Feature1View, didTouchDownButton button: UIButton) {
-
-        // Maximum note value is 127
-        if latestPlayedNote > 127 { latestPlayedNote = 48 }
-        latestPlayedNote += 1
-        samplerPlayer.play(note: latestPlayedNote)
+    func feature1View(_ feature1View: Feature1View, willPlayNoteAt index: Int) {
+        samplerPlayer.play(note: notes[index])
     }
 
-    func feature1View(_ feature1View: Feature1View, didTouchUpInsideButton button: UIButton) {
-        samplerPlayer.stop(note: latestPlayedNote)
+    func feature1View(_ feature1View: Feature1View, willStopNoteAt index: Int) {
+        samplerPlayer.stop(note: notes[index])
     }
 }
