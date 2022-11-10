@@ -17,9 +17,9 @@ class SamplerPlayer {
     // MARK: - Lifecycle
 
     init() {
+        activateAudioSession()
         makeAndStartEngine()
         addObservers()
-        activateAudioSession()
     }
 
     deinit {
@@ -39,13 +39,38 @@ class SamplerPlayer {
         sampler.stopNote(note, onChannel: 0)
     }
 
+    public func setAttack(_ value: Float) {
+        // midiStatus  https://professionalcomposers.com/midi-cc-list/
+
+//    http://midi.teragonaudio.com/tech/midispec/sndatt.htm
+
+//        open func sendMIDIEvent(_ midiStatus: UInt8, data1: UInt8, data2: UInt8)
+//        open func sendMIDIEvent(_ midiStatus: UInt8, data1: UInt8)
+//
+//        /// Decay, or Roland Tone Level 1
+//        case gpButton1 = 80
+//
+//        case attackTime = 73
+//        case releaseTime = 72
+//
+//        /// Damper Pedal, also known as Hold or Sustain
+//        case damperOnOff = 64
+    }
+
     // MARK: - Private
 
     private func makeAndStartEngine() {
         engine = AVAudioEngine()
         sampler = AVAudioUnitSampler()
         engine.attach(sampler)
-        engine.connect(sampler, to: engine.mainMixerNode, format: nil)
+        // 1: No throwing -10878
+        // wrong way
+//        engine.connect(sampler, to: engine.outputNode, format: nil)
+        // 2: Several "throwing -10878" in the logs
+        // Should be enough to connect to mainMixerNode
+         engine.connect(sampler, to: engine.mainMixerNode, format: nil)
+        // We don't need to connect mainMixerNode to outputNode
+//         engine.connect(engine.mainMixerNode, to: engine.outputNode, format: nil)
         loadEXSFile()
         startEngine()
     }
